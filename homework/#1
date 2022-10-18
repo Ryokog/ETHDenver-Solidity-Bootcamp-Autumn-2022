@@ -1,1 +1,17 @@
+Homework 1
+Discuss in your teams what a decentralised version of a game like monopoly would be like,
+if there was no software on a central server.
+Consider
+What are the essential pieces of functionality ?
+How would people cheat ?
+How could you prevent them from cheating ?
+This is just a general discussion, there is no need to write any code or do any detailed
+design
 
+
+Answer 1
+Monopoly itself would not hold.
+Just as nodes are spreaded across entities in Web3, players of monopoly will also need to be wide-spread across various stakeholders.
+There is no cheating in the sense that everything is open and public.
+The way to prevent them from front-run others, we may need to set a time lock on certain things.
+In other words, limit what can be changed in a given time period.
