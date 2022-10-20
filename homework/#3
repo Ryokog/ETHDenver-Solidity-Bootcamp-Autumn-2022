@@ -24,11 +24,18 @@ function returnAddress (uint256) external {
   }
   }
   
-  
 
 contract BootcampContract {
     
     uint256 number;
+    
+    // or
+    // address owner;
+    // modifier onlyOwner{
+    // if(msg.sender == owner){
+    //  _;
+    //  }
+    //  }
     
     function store(uint256 num) public {
         number = num;
