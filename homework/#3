@@ -21,11 +21,11 @@ owner = msg.sender;
 
 function returnAddress (uint256) external {
   if (msg.sender == owner)
-  emit 0x000000000000000000000000000000000000dEaD
+  return 0x000000000000000000000000000000000000dEaD
   }
   
   else {
-  emit address owner;
+  return address owner;
   }
   }
   
