@@ -11,8 +11,13 @@
 pragma solidity 0.8.17;
 
 contract Owned {
-constructor() {owner = payable(msg.sender); }
-address payable owner;
+
+address public owner;
+
+constructor() {
+owner = msg.sender; 
+}
+
 
 function returnAddress (uint256) external {
   if (msg.sender == owner)
@@ -30,7 +35,6 @@ contract BootcampContract {
     uint256 number;
     
     // or
-    // address owner;
     // modifier onlyOwner{
     // if(msg.sender == owner){
     //  _;
