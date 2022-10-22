@@ -12,27 +12,24 @@ pragma solidity 0.8.17;
 
 contract Owned {
 
-address public owner;
+    address public owner;
 
-constructor() {
-owner = msg.sender; 
-}
+    constructor() {
+        owner = msg.sender; 
+    }
 
 
-function returnAddress (uint256) external {
-  if (msg.sender == owner)
-  return 0x000000000000000000000000000000000000dEaD
-  }
+    function returnAddress (uint256) external {
+         if (msg.sender == owner)
+    return 0x000000000000000000000000000000000000dEaD;
   
-  else {
-  return address owner;
-  }
-  }
-  
+         else {
+    return owner;
+
 
 contract BootcampContract {
     
-    uint256 number;
+    uint256 public number;
     
     // or
     // modifier onlyOwner{
@@ -40,6 +37,7 @@ contract BootcampContract {
     //  _;
     //  }
     //  }
+    // ??
     
     function store(uint256 num) public {
         number = num;
