@@ -7,13 +7,20 @@ contract VolcanoCoin {
 
   uint256 totalSupply = 10000;
   address public owner;
+
+  event transferHasTakenPlace(uint transferAmount, address _addr); 
   
+  struct Payment {
+         uint256 transferAmount;
+         address _addr;
+     }
+
  function tokenSupply() public {
  return totalSupply;
  }
  
  function addSupply() public {
- totalSupply + 1000 = newSupply;
+ totalSupply += 1000 = newSupply;
  }
  
  modifier onlyOwner {
@@ -34,22 +41,15 @@ contract VolcanoCoin {
     function get(address _addr) public view returns {
         return balances[_addr];
     }
+
 // from here on, I don't really know what I am doing...
 
  mapping (address => uint256) public payable toOwner;
 
- function transfer(uint256 amount, address _address) public payable {
+ function transfer(uint256 amount, address _addr) public payable {
      mapping (address => uint256);
-
-     event transferHasTakenPlace(bool); 
-         emit 
+        emit transferHasTakenPlace(amount, _addr);
      }
-
-     struct Payment {
-         uint256 transferAmount;
-         address _address;
-     }
-
 
  }
 
