@@ -1,6 +1,83 @@
 // Homework 5
-// . Install a browser wallet such as Metamask
-// . Connect to the Goerli Test network
-// . Set up a wallet that will be used by your team for the team games
-// . If you need some test ETH, lets us know and we can send some to your team.
-// . Update your Volcano coin contract to inherit from the Open Zeppelin Ownable contract, and use this to replace the owner functionality in your contract.
+// . Install a browser wallet such as Metamask => installed
+// . Connect to the Goerli Test network => connected
+// . Set up a wallet that will be used by your team for the team games => done by a team member
+// . If you need some test ETH, lets us know and we can send some to your team. => I think we should be fine.
+// . Update your Volcano coin contract to inherit from the Open Zeppelin Ownable contract, and use this to replace the owner functionality in your contract. => see below
+
+
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"
+
+// #1 The name of the file VolcanoCoin.sol
+
+// #3
+// SPDX-License-Identifier: UNLICENSED
+// #2
+pragma solidity ^0.8.0;
+
+// #4
+contract VolcanoCoin {
+
+  // #5
+  uint256 totalSupply = 10000;
+  // #8
+  address public owner;
+  // #12
+  event transferHasTakenPlace(
+      uint transferAmount, 
+      address _addr
+      ); 
+  
+// #6
+ function totalSupply(uint256, totalSupply) public {
+ return totalSupply;
+ }
+
+  // #18
+  struct Payment {
+         uint256 transferAmount;
+         address _addr;
+     }
+
+ // #7&10&12
+ function increaseSupply() public {
+     require(msg.sender == owner);
+     totalSupply += 1000;
+     emit transferHasTakenPlace(
+         totalSupply
+     );
+     }
+ 
+ // #9
+ modifier onlyOwner {
+     require(msg.sender == owner); 
+     _;
+     }
+
+     // #11&15
+     constructor() {
+        owner = payable(msg.sender);
+        address payable owner = totalSupply;
+    }
+
+// #13 a) The best way is to use mapping. 
+// #13 b)
+    mapping (address => uint256) public balances;
+// #14 One way is to use public. The other way is to use external?
+
+    function get(address _addr, uint256 numberOfCoins) public view returns {
+           return balances[_addr, numberOfCoins];
+    }
+
+ // #16
+ // #16 Sender's address is not needed because all the coins are stored under this contract 
+ // and each user's holdings is recorded here, too.
+ // The implication would be to transfer an ether or coin that is not VolcanoCoin.
+ // #17
+ function transfer(uint256 amount, address _addr) public payable {
+     mapping (address => uint256);
+        emit transferHasTakenPlace(amount, _addr);
+     }
+
+ // #19
+    mapping(address => Payment);
