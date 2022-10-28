@@ -11,14 +11,15 @@
 // userʼs payment record.
 // . Each time we make a transfer of tokens, we should call the this recordPayment
 // function to record the transfer.
+// SPDX-License-Identifier: UNLICENSED
+// The above is the answer to #3
 
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"
 
-// SPDX-License-Identifier: UNLICENSED
-// The above is the answer to #3
 // #2
 pragma solidity ^0.8.0;
+
 
 // #1 The name of the file VolcanoCoin.sol
 
@@ -36,7 +37,7 @@ contract VolcanoCoin {
 
     // #19
     mapping(address => Payment[]) private userPayments;
- }
+    }
 
     // #18
     struct Payment {
@@ -45,7 +46,7 @@ contract VolcanoCoin {
     }
 
     // #12
-    event TotalSupplyHasIncreased(address _addr, uint transferAmount); 
+    event TotalSupplyHasIncreased(address _addr, uint256 transferAmount); 
     // #17&19
     event TransferHasTakenPlace(address _addr, uint256 amount);
 
@@ -88,15 +89,25 @@ contract VolcanoCoin {
     function transfer(address _addr, uint256 amount) public {
         balances[msg.sender] -= amount;
         balances[_addr] += amount;
+        // Homework 7
+        return userPayments[sender];
         emit TransferHasTakenPlace(_addr, amount);
     }
 
-  function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint256) {
-  
+    // Homework 7
+    // The difference is that we can keep the record private?
+    function viewPaymentRecords(address user) private view returns(uint256) {
+        return userPayments[user];
+    }
 
-  function viewPaymentRecords(address user) public view returns(uint256) {
-    return userPayments;
-  }
+    // Homework 7
+    function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint256) {
+        userPayments[sender] = Payment[];
+        return userPayments[sender];
+    }
+    
+
+
 
 
 
