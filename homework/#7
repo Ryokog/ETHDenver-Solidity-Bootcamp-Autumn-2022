@@ -15,7 +15,11 @@
 // The above is the answer to #3
 
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"
+// SPDX-License-Identifier: UNLICENSED
+// The above is the answer to #3
+
+
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
 
 // #2
 pragma solidity ^0.8.0;
@@ -37,7 +41,7 @@ contract VolcanoCoin {
 
     // #19
     mapping(address => Payment[]) private userPayments;
-    }
+ }
 
     // #18
     struct Payment {
@@ -89,23 +93,25 @@ contract VolcanoCoin {
     function transfer(address _addr, uint256 amount) public {
         balances[msg.sender] -= amount;
         balances[_addr] += amount;
-        // Homework 7
+        // Homework 7 #3
         return userPayments[sender];
         emit TransferHasTakenPlace(_addr, amount);
     }
 
-    // Homework 7
-    // The difference is that we can keep the record private?
+    // Homework 7 #1
+    // The difference is that we can keep the record of other users private.
     function viewPaymentRecords(address user) private view returns(uint256) {
         return userPayments[user];
     }
 
-    // Homework 7
+    // Homework 7 #2
     function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint256) {
-        userPayments[sender] = Payment[];
+        userPayments.push(sender) = Payment[];
         return userPayments[sender];
     }
     
+
+
 
 
 
