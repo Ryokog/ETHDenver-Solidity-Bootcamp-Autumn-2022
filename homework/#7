@@ -41,7 +41,6 @@ contract VolcanoCoin {
 
     // #19
     mapping(address => Payment[]) private userPayments;
- }
 
     // #18
     struct Payment {
@@ -73,7 +72,7 @@ contract VolcanoCoin {
     }
 
     // #14 One way is to use public. The other way is to use view function
-    function get(address _addr) public view returns {
+    function get(address _addr) public view returns(uint256){
         return balances[_addr];
     }
 
@@ -82,7 +81,7 @@ contract VolcanoCoin {
    
     // Commenting out below as it may not be needed in the current compiler version
     //require(msg.sender == owner);
-        totalSupply += 1000;
+        totalSupply += 1_000;
         emit TotalSupplyHasIncreased(totalSupply);
     }
 
@@ -94,23 +93,22 @@ contract VolcanoCoin {
         balances[msg.sender] -= amount;
         balances[_addr] += amount;
         // Homework 7 #3
-        return userPayments[sender];
+        recordPayment(sender, receiver, amount);
         emit TransferHasTakenPlace(_addr, amount);
     }
 
     // Homework 7 #1
     // The difference is that we can keep the record of other users private.
-    function viewPaymentRecords(address user) private view returns(uint256) {
+    function viewPaymentRecords(address user) public view returns(uint[]) {
         return userPayments[user];
     }
 
     // Homework 7 #2
-    function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint256) {
+    function recordPayment(address sender, address receiver, uint256 amount) public view returns (address[] memory) {
+        
         userPayments.push(sender) = Payment[];
-        return userPayments[sender];
     }
     
-
 
 
 
