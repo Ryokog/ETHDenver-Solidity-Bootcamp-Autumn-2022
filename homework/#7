@@ -104,7 +104,8 @@ contract VolcanoCoin {
     }
 
     // Homework 7 #2
-    function recordPayment(address sender, address receiver, uint256 amount) public view returns (address[] memory) {
+    function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint[]) {
+        return 
         
         userPayments.push(sender) = Payment[];
     }
