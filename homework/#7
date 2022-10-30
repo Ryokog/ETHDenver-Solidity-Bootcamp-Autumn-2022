@@ -31,7 +31,7 @@ pragma solidity ^0.8.0;
 contract VolcanoCoin {
 
      // #5
-    uint256 private totalSupply = 10_000;
+    uint256 totalSupply = 10_000;
     // #8
     address private owner;
     
