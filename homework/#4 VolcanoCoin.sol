@@ -58,9 +58,9 @@ contract VolcanoCoin {
     // #7&10&12
     function supplyIncrease() public onlyOwner {
    
-    // Commenting out below as it may not be needed in the current compiler version
+    // Commenting out the below as it may not be needed when using onlyOwner
     //require(msg.sender == owner);
-        totalSupply += 1000;
+        totalSupply += 1_000;
         emit TotalSupplyHasIncreased(totalSupply);
     }
 
