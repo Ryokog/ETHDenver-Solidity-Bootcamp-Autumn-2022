@@ -11,8 +11,6 @@
 // userʼs payment record.
 // . Each time we make a transfer of tokens, we should call the this recordPayment
 // function to record the transfer.
-// SPDX-License-Identifier: UNLICENSED
-// The above is the answer to #3
 
 
 // SPDX-License-Identifier: UNLICENSED
