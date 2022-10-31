@@ -31,7 +31,7 @@ pragma solidity ^0.8.0;
 contract VolcanoCoin {
 
      // #5
-    uint256 totalSupply = 10_000;
+    uint256 private totalSupply = 10_000;
     // #8
     address private owner;
     
@@ -67,8 +67,9 @@ contract VolcanoCoin {
     }
 
     // #6
-    function totalSupply() public view returns(uint256) {
+    function getTotalSupply() public view returns(uint256) {
         return totalSupply;
+        // return supplyIncrease would literally return the function without calling it.
     }
 
     // #14 One way is to use public. The other way is to use view function
@@ -82,7 +83,7 @@ contract VolcanoCoin {
     // Commenting out below as it may not be needed in the current compiler version
     //require(msg.sender == owner);
         totalSupply += 1_000;
-        emit TotalSupplyHasIncreased(totalSupply);
+        emit TotalSupplyHasIncreased(msg.sender, totalSupply);
     }
 
     // #16
@@ -93,23 +94,24 @@ contract VolcanoCoin {
         balances[msg.sender] -= amount;
         balances[_addr] += amount;
         // Homework 7 #3
-        recordPayment(sender, receiver, amount);
+        recordPayment(msg.sender, _addr, amount);
         emit TransferHasTakenPlace(_addr, amount);
     }
 
     // Homework 7 #1
     // The difference is that we can keep the record of other users private.
-    function viewPaymentRecords(address user) public view returns(uint[]) {
+    function viewPaymentRecords(address user) public view returns(Payment[] memory) {
         return userPayments[user];
     }
 
     // Homework 7 #2
-    function recordPayment(address sender, address receiver, uint256 amount) public view returns (uint[]) {
-        return 
-        
-        userPayments.push(sender) = Payment[];
+    function recordPayment(address sender, address receiver, uint256 amount) public {
+        Payment memory _payment = Payment(receiver, amount);
+        userPayments[sender].push(_payment);
     }
+}
     
+
 
 
 
