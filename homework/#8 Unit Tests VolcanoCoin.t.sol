@@ -14,3 +14,5 @@
 // gitpod.io/#https://github.com/ExtropyIO/SolidityBootcamp
 
 // Unit Tests for VolcanoCoin.sol
+// I chose Foundry for the test purpose to practice writing in Solidity more
+
