@@ -16,3 +16,24 @@
 // Unit Tests for VolcanoCoin.sol
 // I chose Foundry for the test purpose to practice writing in Solidity more
 
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
+import "../VolcanoCoin.sol";
+import "forge-std/Test.sol";
+
+
+contract VolcanoCoinContractTest is Test {
+    address public owner;
+    VolcanoCoin public volcanocoin;
+
+    function setUp() public {
+        owner = msg.sender;
+        volcanocoin = new VolcanoCoin();
+    }
+   
+    function testTotalSupply()
+
+}
+
+// I am still working on this test
