@@ -24,15 +24,21 @@ import "forge-std/Test.sol";
 
 
 contract VolcanoCoinContractTest is Test {
+    // I took line 10 from some online material. What is it doing?
     address public owner;
-    VolcanoCoin public volcanocoin;
+    VolcanoCoin public volcanoCoin;
 
     function setUp() public {
         owner = msg.sender;
-        volcanocoin = new VolcanoCoin();
+        volcanoCoin = new VolcanoCoin();
     }
    
-    function testTotalSupply()
+    function testInitialTotalSupply() 
+    
+    {
+        // I want to test my initial total supply and yet I am calling totaly supply...
+        assertEq(volcanoCoin.getTotalSupply(), 10_000);
+    }
 
 }
 
