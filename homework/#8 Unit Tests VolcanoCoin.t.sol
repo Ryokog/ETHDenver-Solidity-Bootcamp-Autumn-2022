@@ -24,7 +24,7 @@ import "forge-std/Test.sol";
 
 
 contract VolcanoCoinContractTest is Test {
-    // I took line 10 from some online material. What is it doing?
+    // I took the below line from some online material. What is it doing? Set up the owner one more time? Why (?_?)
     address public owner;
     VolcanoCoin public volcanoCoin;
 
