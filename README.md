@@ -1,3 +1,3 @@
 # ETHDenver-Solidity-Bootcamp-Autumn-2022
 
-I have been selected as one of ETHDenver Solidity Bootcamp Cohorts in Autumn 2022 and this is the repo to post all the homework for the Bootcamp.
+I am participating in the ETHDenver Solidity Bootcamp in Autumn 2022 and this is the repo to post all the homework assignments for the Bootcamp.
