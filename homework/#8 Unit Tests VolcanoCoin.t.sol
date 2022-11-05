@@ -24,7 +24,7 @@ import "forge-std/Test.sol";
 
 
 contract VolcanoCoinContractTest is Test {
-    // I took the below line from some online material. What is it doing? Set up the owner one more time? Why (?_?)
+    // I took line 10 from some online material. What is it doing?
     address public owner;
     VolcanoCoin public volcanoCoin;
 
@@ -33,12 +33,15 @@ contract VolcanoCoinContractTest is Test {
         volcanoCoin = new VolcanoCoin();
     }
    
-    function testInitialTotalSupply() 
-    
-    {
+    function testInitialTotalSupply()   {
         // I want to test my initial total supply and yet I am calling totaly supply...
         assertEq(volcanoCoin.getTotalSupply(), 10_000);
     }
+
+    function testSupplyIncrease() {
+        assertEq(volcanoCoin.supplyIncrease(owner), 11_000);
+    }
+   
 
 }
 
