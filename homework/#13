@@ -1,0 +1,6 @@
+// Homework 13
+// In preparation for tomorrows lesson, discuss in your teams secure approaches to random
+// values in contracts.
+
+
+Answer: When looking at security docs, it is usually stated that block number should never be used as a source of random number as it is predictable.
