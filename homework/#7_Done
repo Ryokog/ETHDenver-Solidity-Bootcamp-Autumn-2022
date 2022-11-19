@@ -1,21 +1,5 @@
-// Homework 7
-// We made a payment mapping, but we havenʼt added all the functionality for it yet.
-// Write a function to view the payment records, specifying the user as an input.
-// What is the difference between doing this and making the mapping public ?
-//. For the payments record mapping, create a function called recordPayment that
-// takes
-// . the senderʼs address,
-// . the receiverʼs address and
-// . the amount
-// as an input, then creates a new payment record and adds the new record to the
-// userʼs payment record.
-// . Each time we make a transfer of tokens, we should call the this recordPayment
-// function to record the transfer.
-
-
 // SPDX-License-Identifier: UNLICENSED
 // The above is the answer to #3
-
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
 
@@ -94,6 +78,12 @@ contract VolcanoCoin {
         // Homework 7 #3
         recordPayment(msg.sender, _addr, amount);
         emit TransferHasTakenPlace(_addr, amount);
+        
+    // The answer was provided as below
+    // function transfer(uint256 amount, address to) public {
+    // ...
+    // _recordPayment(msg.sender, to, amount);
+    // ...
     }
 
     // Homework 7 #1
@@ -101,20 +91,25 @@ contract VolcanoCoin {
     function viewPaymentRecords(address user) public view returns(Payment[] memory) {
         return userPayments[user];
     }
+    
+    // The answer was provided as below;
+    // function getPayments(address index) public view returns(Payment[] memory) {
+    // Payment[] memory arr = payments[index];
+    // return arr;
+    // }
 
     // Homework 7 #2
     function recordPayment(address sender, address receiver, uint256 amount) public {
         Payment memory _payment = Payment(receiver, amount);
         userPayments[sender].push(_payment);
     }
+    
+    // The answer was provided as below;
+    // function _recordPayment(address from, address to, uint256 amount) private {
+    //      payments[from].push(Payment(amount, to));
+    // }
 }
     
-
-
-
-
-
-
 
 // Homework 7
 // We made a payment mapping, but we havenʼt added all the functionality for it yet.
