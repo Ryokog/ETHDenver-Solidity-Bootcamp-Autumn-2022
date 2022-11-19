@@ -1,14 +1,6 @@
-// Homework 5
-// . Install a browser wallet such as Metamask => installed
-// . Connect to the Goerli Test network => connected
-// . Set up a wallet that will be used by your team for the team games => done by a team member
-// . If you need some test ETH, lets us know and we can send some to your team. => I think we should be fine.
-// . Update your Volcano coin contract to inherit from the Open Zeppelin Ownable contract, and use this to replace the owner functionality in your contract. => see below
-
+// SPDX-License-Identifier: UNLICENSED
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"
-
-// SPDX-License-Identifier: UNLICENSED
 // The above is the answer to #3
 // #2
 pragma solidity ^0.8.0;
@@ -84,4 +76,11 @@ contract VolcanoCoin {
         emit TransferHasTakenPlace(_addr, amount);
     }
 
+
+// Homework 5
+// . Install a browser wallet such as Metamask => installed
+// . Connect to the Goerli Test network => connected
+// . Set up a wallet that will be used by your team for the team games => done by a team member
+// . If you need some test ETH, lets us know and we can send some to your team. => We are fine.
+// . Update your Volcano coin contract to inherit from the Open Zeppelin Ownable contract, and use this to replace the owner functionality in your contract. => see above
 
